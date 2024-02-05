@@ -1,11 +1,11 @@
 # Knapsack_Annealing
 
-## *1.	Code Overview 
-1.1	Instructions
+## *1.	Code Overview* 
+*1.1	Instructions*
     For this problem it was chosen to have a predefined dataset of number of items, capacity and utility. All created by random function of numpy. 
     When defining the initial conditions and objective of the problem we need to make sure that the maximum capacity doesn’t exceed 2500, for that this part of the code should be run as many times as needed until this condition is met. From there we can proceed to the rest of the code. 
 
-1.2	Functions Explanations 
+*1.2	Functions Explanations *
 1.2.1	Objective_function
         The objective_function is designed to calculate the total utility based on a random selection of items created by random_choice. It calculates the total utility by multiplying the utility vector by the random choice vector, while total capacity is calculated by multiplying the capacity vector by the random choice vector. The function returns the total utility if the total capacity does not exceed the maximum allowable capacity. Otherwise, it returns 0.
 1.2.2	Create_neighbor
@@ -22,7 +22,7 @@
         The temperature parameter is gradually decreased during each iteration, controlling the likelihood of accepting suboptimal solutions. 
         The optimization process is visualized with a plot showing the changes in utility, temperature, and capacity throughout the iterations.
 
-## *2.	Analysis of influence of temperatures and cooling_rates on results
+## *2.	Analysis of influence of temperatures and cooling_rates on results*
    For this analysis it was only used the simulated_annealing function. Here the preseted values for initial_temperature and cooling_rate were changed and the main optimal solutions recorded in the following table. 
 
      Consider the initial conditions:
@@ -32,7 +32,7 @@
 From the results it is possible to see that a cooling_rate of 0,99 gives in general better results than 0,95. A higher cooling rate will cause the temperature to decrease more rapidly. This can lead to more exploitation of the current region and can result in quicker convergence to a local optimum.
 For the temperature is also noticeble that too high and too low initial temperatures give worse values of utility. So in a range of 100-300 we get the best results. Which means that there is a better ratio of exploitation and exploration of the data. 
  
- Temperature	 Cooling_rate	Number of Items 	Utility
+ *Temperature	 Cooling_rate	Number of Items 	Utility*
    1000	        0,99               47	         2928
    1000	        0,95	           51	         2768
    300         	0,99	           53	         3047
@@ -45,7 +45,7 @@ For the temperature is also noticeble that too high and too low initial temperat
    50          	0,95               44	         2245
 
 
-## *3.	Testing the code considering each iteration the higher ratio utility and capacity is chosen. 
+## *3.	Testing the code considering each iteration the higher ratio utility and capacity is chosen.* 
    For this analysis check jupyter file: 	Knapsack_Annealing.ipynb
    To know if the optimal solution would be best considering that in every iteration the higher ratio of utility and capacity is the chosen item, it was added a new function to create_neighbor that makes this selection. 
 
