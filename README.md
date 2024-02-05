@@ -2,12 +2,15 @@
 
 ## *1.	Code Overview* 
 *1.1	Instructions*
-    For this problem it was chosen to have a predefined dataset of number of items, capacity and utility. All created by random function of numpy. 
-    When defining the initial conditions and objective of the problem we need to make sure that the maximum capacity doesn’t exceed 2500, for that this part of the code should be run as many times as needed until this condition is met. From there we can proceed to the rest of the code. 
+
+For this problem it was chosen to have a predefined dataset of number of items, capacity and utility. All created by random function of numpy. 
+When defining the initial conditions and objective of the problem we need to make sure that the maximum capacity doesn’t exceed 2500, for that this part of the code should be run as many times as needed until this condition is met. From there we can proceed to the rest of the code. 
 
 *1.2	Functions Explanations *
+
 1.2.1	Objective_function
-        The objective_function is designed to calculate the total utility based on a random selection of items created by random_choice. It calculates the total utility by multiplying the utility vector by the random choice vector, while total capacity is calculated by multiplying the capacity vector by the random choice vector. The function returns the total utility if the total capacity does not exceed the maximum allowable capacity. Otherwise, it returns 0.
+        
+The objective_function is designed to calculate the total utility based on a random selection of items created by random_choice. It calculates the total utility by multiplying the utility vector by the random choice vector, while total capacity is calculated by multiplying the capacity vector by the random choice vector. The function returns the total utility if the total capacity does not exceed the maximum allowable capacity. Otherwise, it returns 0.
 1.2.2	Create_neighbor
         There are two methods to create a neighbor of the previous random_choice, selecting the item with the highest utility-to-weight ratio or randomly choosing an item and flipping its selection status in a given random choice vector: 
         Please NOTE: run only one option at the time!
