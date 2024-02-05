@@ -22,14 +22,16 @@ Please NOTE: run only one option at the time!
 The function generates a neighbor solution by selecting the item with the highest utility-to-weight ratio and flipping its selection status in a given random choice vector. It operates by computing the utility-to-weight ratio for each item based on the provided utility and capacity vectors. It then identifis the item with the highest ratio and flips its selection status in the random_choice vector, creating a neighboring solution.
 To avoid division by zero, a small value (1e-10) is added to the denominator when calculating ratios.
 
- 1.2.2.2	Create_neighbor by random choice of item
- The function provides a simple method for generating a neighbor solution by randomly selecting an item from the random_choice and flips its status (0 to 1 or 1 to 0).
+1.2.2.2	Create_neighbor by random choice of item
+
+The function provides a simple method for generating a neighbor solution by randomly selecting an item from the random_choice and flips its status (0 to 1 or 1 to 0).
  
- 1.2.3	Simulated_annealing
+1.2.3	Simulated_annealing
+
 This function implements the Simulated Annealing optimization algorithm to find a solution for an optimization problem. The algorithm iteratively explores neighboring solutions, accepting improvements or suboptimal solutions based on a probability distribution that depends on the current "temperature."
 It initializes with the random_choice and iteratively explores neighbors solutions using create_neighbor. The algorithm accepts a new solution if it improves the objective_function value or based on the probability of accepting suboptimal solutions.
 The temperature parameter is gradually decreased during each iteration, controlling the likelihood of accepting suboptimal solutions. 
-        The optimization process is visualized with a plot showing the changes in utility, temperature, and capacity throughout the iterations.
+The optimization process is visualized with a plot showing the changes in utility, temperature, and capacity throughout the iterations.
 
 ## *2.	Analysis of influence of temperatures and cooling_rates on results*
    For this analysis it was only used the simulated_annealing function. Here the preseted values for initial_temperature and cooling_rate were changed and the main optimal solutions recorded in the following table. 
@@ -41,7 +43,7 @@ The temperature parameter is gradually decreased during each iteration, controll
 From the results it is possible to see that a cooling_rate of 0,99 gives in general better results than 0,95. A higher cooling rate will cause the temperature to decrease more rapidly. This can lead to more exploitation of the current region and can result in quicker convergence to a local optimum.
 For the temperature is also noticeble that too high and too low initial temperatures give worse values of utility. So in a range of 100-300 we get the best results. Which means that there is a better ratio of exploitation and exploration of the data. 
  
-     *Temperature	 Cooling_rate	Number of Items 	Utility*
+     *Temperature   Cooling_rate    Number of Items 	Utility*
        1000	        0,99               47	         2928
        1000	        0,95	           51	         2768
        300         	0,99	           53	         3047
@@ -68,4 +70,5 @@ For the temperature is also noticeble that too high and too low initial temperat
     return vizinho
 
 NOTE: Be careful when running the code to only run this function. The original create_neighbor function is also in this file in order to allow comparison of results. But you can only run one at a time.
+
 With this 2 results it is possible to see that chosing the higher ratio doesn’t necessary mean better results. Although it may seem that prioritizing items that offer the best utility-to-weight ratio, can lead to more efficient utilization of the backpack's total capacity, the reality is that other factors stop being take into account. The overall disavantages of this approach are the lack of diversity, since all the same items are being picked every time, or if there are items with very high utilities, even if their utility-to-weight ratios are slightly lower, the final solution might be better if those items are very high.
